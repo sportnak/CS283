@@ -7,19 +7,19 @@ import client.WorkerThread;
 
 public class MTServer {
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
+		final ServerSocket ss;
 		try{
-			final ServerSocket ss = new ServerSocket(1238);
-			ss.close();
+			ss = new ServerSocket(1270);
+			System.out.println("Server connected");
 			while(true) {
 				
 				final Socket cs = ss.accept();
-				WorkerThread.WorkerThread(cs);
-				ss.close();
-				
+				new WorkerThread(cs).start();
 			}
+
 		}catch(IOException e){
-			
 		}
+		
 	}
 }

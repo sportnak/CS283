@@ -8,9 +8,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SimpleServer {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		try{
-			ServerSocket ss = new ServerSocket(1231);
+			ServerSocket ss = new ServerSocket(1270);
 			System.out.println("ServerSocket Created");
 			while(true) {
 				Socket cs = ss.accept();
@@ -19,13 +19,14 @@ public class SimpleServer {
 				String line = "hello";
 				while(true){
 					line = r.readLine();
+					System.out.println("My line " + line);
 					if(line == null){
 						break;
 					}
 					else{
-						System.out.println("Received: " + line);
 						PrintStream out = new PrintStream(cs.getOutputStream());
-						out.println(line.toUpperCase() +'\n' );
+						Thread.sleep(10);
+						out.println(line.toUpperCase() + '\n');
 					}
 					
 				}

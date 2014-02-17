@@ -12,11 +12,11 @@ public class SimpleClient {
 		Socket s;
 		
 		try {
-			s = new Socket("localhost", 1231);
+			s = new Socket("localhost", 1270);
 			PrintStream w = null;
 			try {
 				w = new PrintStream(s.getOutputStream());
-				w.println("hello world \n"); //this will be returned in all cam
+				w.println("hello world"); //this will be returned in all cam
 			} catch (IOException e) {
 			}
 			BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));

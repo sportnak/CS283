@@ -9,51 +9,49 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class BenchmarkClient {
-	public static void main(String[] args) {
-		Socket s;
-		
-		try {
-			s = new Socket("localhost", 1231);
-			PrintStream w = null;
-			final long startTime = System.currentTimeMillis();
-			try {
-				w = new PrintStream(s.getOutputStream());
-				w.println("hello world \n"); //this will be returned in all cam
-			} catch (IOException e) {
-			}
-			BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			while(true){
-				String line = r.readLine();
-				w.close();
-				if(line == null){
-					break;
-				}
-				else{
-					System.out.println("We have received " + line + " back in the client");
-					System.out.println("After having sent it to the server.");
-					break;
-				}
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		final long startTime = System.currentTimeMillis();
+		final Socket s = new Socket("localhost", 1270);
+		int users = 0;
+		while(System.currentTimeMillis() < startTime + 500){
+			for(int i = 0; i < 2; i++){
+				new Thread(new Runnable(){
+					public void run(){
+						int users = 0;
+						try {
+							PrintStream w = null;
+							try {
+								w = new PrintStream(s.getOutputStream());
+								w.println("hello world"); //this will be returned in all cam
+							} catch (IOException e) {
+							}
+							BufferedReader r = new BufferedReader(new InputStreamReader(s.getInputStream()));
+							while(true){
+								String line = r.readLine();
+								if(line == null){
+									break;
+								}
+								else{
+									System.out.println("We have received " + line + " back in the client");
+									System.out.println("After having sent it to the server.");
+									break;
+								}
+							}
+
+							
+						
+						} catch (UnknownHostException e) {
+							System.out.println("uhe");
+						} catch (IOException e) {
+							System.out.println("ioe");
+						}
+	
+					}
 				
+				}).start();
+				users++;
 			}
-			final long endTime = System.currentTimeMillis();
-			System.out.println("We took: " + (endTime - startTime) + " milli-seconds to send one message and get it back.");
-			s.close();
-		} catch (UnknownHostException e) {
-		} catch (IOException e) {
 		}
-		try{
-			final ServerSocket ss = new ServerSocket(1231);
-			ss.close();
-			while(true) {
-				
-				final Socket cs = ss.accept();
-				WorkerThread.WorkerThread(cs);
-				ss.close();
-				break;
-				
-			}
-		}catch(IOException e){
-			
-		}
+		//s.close();
 	}
 }
