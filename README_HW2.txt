@@ -1,5 +1,1 @@
-The benchmark client is the same as the simple client. The only difference is that when the benchmark client is used, we took a timestamp at the beginning of the connection and then ran a while loop that ran while the current time was less than 500 milliseconds longer than the start. On each iteration, we incremented a counter variable and then returned that value divided by the 500 milliseconds to get the number of users serviced per millisecond.
-
-The Multi-threaded server serviced a considerably larger number of users per millisecond than the simple server based on the fact that the multithreaded server could service multiple clients at the same time.
-
-
+The program that I provided implements a multi threaded server responding a series of transactions. It calculates the total at the end and keeps track of the treads in an object created in the main server class. Once all of the main threads have been activated (number of threads for multithreaded test plus one for single threaded and then one for shutdown), the server closes itself and the threads work themselves to completion. The computation comes out correct.
