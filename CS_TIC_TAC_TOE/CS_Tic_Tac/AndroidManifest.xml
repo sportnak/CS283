@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cs_tic_tac"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.cs_tic_tac.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.cs_tic_tac.Board"
+            android:label="@string/title_activity_board" >
+        </activity>
+        <activity
+            android:name="com.example.cs_tic_tac.Board2"
+            android:label="@string/title_activity_board2" >
+        </activity>
+        <activity
+            android:name="com.example.cs_tic_tac.ListUsers"
+            android:label="@string/title_activity_list_users" >
+        </activity>
+
+        <service
+            android:name="com.example.cs_tic_tac.WorkerService"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.cs_tic_tac.PlayGame"
+            android:label="@string/title_activity_play_game" >
+        </activity>
+    </application>
+
+</manifest>

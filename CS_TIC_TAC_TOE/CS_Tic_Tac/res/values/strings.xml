@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CS_Tic_Tac</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="new_game">New Game</string>
+    <string name="enterName">Enter your name</string>
+    <string name="title_activity_board">Board</string>
+    <string name="title_activity_board2">Board2</string>
+    <string name="submit">Submit</string>
+    <string name="inputs">(user, x, y)</string>
+    <string name="user">User</string>
+    <string name="xCoord">X Coordinate</string>
+    <string name="yCoord">Y Coordinate</string>
+    <string name="title_activity_list_users">ListUsers</string>
+    <string name="password">Enter your password</string>
+    <string name="title_activity_play_game">PlayGame</string>
+    <string name="zeroes">[0 0 0]\n[0 0 0]\n[0 0 0]</string>
+
+</resources>

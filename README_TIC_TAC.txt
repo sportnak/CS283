@@ -1,0 +1,4 @@
+For this game each user puts in a one word user name and password of any length.
+They are then presented with a list of the users currently online. They can select one which will send a request that gives the opponent 10 seconds to respond. They go into the game and can send the coordinates of the point and it ends the game properly, however, it does not update the visible board (Currently just a array in text format.) until the opponent sends a move. That being said, its still relatively easy.
+
+There are still one or two bugs with the UI, but I didn't have time to get to all of them, mostly because this is the first fully interactive app I've created.
